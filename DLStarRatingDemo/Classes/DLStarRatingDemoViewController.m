@@ -23,12 +23,17 @@
     [super viewDidLoad];
     
     // Custom Number of Stars
-	DLStarRatingControl *customNumberOfStars = [[DLStarRatingControl alloc] initWithFrame:CGRectMake(0, 154, 320, 153) andStars:5 isFractional:YES];
+	DLStarRatingControl *customNumberOfStars =
+    [[DLStarRatingControl alloc] initWithFrame:CGRectMake(0, 154, 60, 153)
+                                    withStar:[UIImage  imageNamed:@"10_star.png"]
+                           withHighlightedStar:[UIImage imageNamed:@"10_star_highlighted.png"]
+                                      andStars:5 isFractional:YES];
+    [customNumberOfStars setUserInteractionEnabled:NO];
     customNumberOfStars.delegate = self;
 	customNumberOfStars.backgroundColor = [UIColor groupTableViewBackgroundColor];
 	customNumberOfStars.autoresizingMask =  UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
 	customNumberOfStars.rating = 2.5;
-	[self.view addSubview:customNumberOfStars];
+    [self.view addSubview:customNumberOfStars];
     [customNumberOfStars release];
     
     // Custom Images 

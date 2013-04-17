@@ -91,6 +91,22 @@
 	return self;
 }
 
+- (id)initWithFrame:(CGRect)frame withStar:(UIImage *)_star withHighlightedStar:(UIImage *)_highlightedStar andStars:(NSUInteger)_numberOfStars isFractional:(BOOL)isFract{
+	self = [super initWithFrame:frame];
+	if (self) {
+        isFractionalRatingEnabled = isFract;
+		numberOfStars = _numberOfStars;
+        if (isFractionalRatingEnabled)
+            numberOfStars *=kNumberOfFractions;
+        
+        self.star = _star;
+        self.highlightedStar = _highlightedStar;
+        
+		[self setupView];
+	}
+	return self;
+}
+
 - (void)layoutSubviews {
 	for (int i=0; i < numberOfStars; i++) {
 		[(DLStarView*)[self subViewWithTag:i] centerIn:self.frame with:numberOfStars];
