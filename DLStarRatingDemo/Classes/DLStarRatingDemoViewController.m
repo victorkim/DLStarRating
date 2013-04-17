@@ -32,12 +32,7 @@
     [customNumberOfStars release];
     
     // Custom Images 
-    DLStarRatingControl *customStarImageControl = [[DLStarRatingControl alloc] initWithFrame:CGRectMake(0.0, 307.0, 320.0, 153.0)];
-    
-    // Set Custom Stars
-    [customStarImageControl setStar:nil highlightedStar:[UIImage imageNamed:@"star_highlighted-darker.png"] atIndex:0];
-    [customStarImageControl setStar:nil highlightedStar:[UIImage imageNamed:@"star_highlighted-darker.png"] atIndex:2];
-    [customStarImageControl setStar:nil highlightedStar:[UIImage imageNamed:@"star_highlighted-darker.png"] atIndex:4];
+    DLStarRatingControl *customStarImageControl = [[DLStarRatingControl alloc] initWithFrame:CGRectMake(0.0, 307.0, 320.0, 153.0) withStar:[UIImage  imageNamed:@"20_star.png"] withHighlightedStar:[UIImage imageNamed:@"20_star_highlighted.png"] withMargin:20.0f];
     
     customStarImageControl.backgroundColor = [UIColor lightGrayColor];
     customStarImageControl.autoresizingMask =  UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;

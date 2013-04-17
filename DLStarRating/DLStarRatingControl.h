@@ -24,10 +24,13 @@
 	UIImage *highlightedStar;
 	IBOutlet id<DLStarRatingDelegate> delegate;
     BOOL isFractionalRatingEnabled;
+    CGFloat margin;
 }
 
 - (id)initWithFrame:(CGRect)frame;
+- (id)initWithFrame:(CGRect)frame withStar:(UIImage *)_star withHighlightedStar:(UIImage *)_highlightedStar withMargin:(CGFloat)_margin;
 - (id)initWithFrame:(CGRect)frame andStars:(NSUInteger)_numberOfStars isFractional:(BOOL)isFract;
+
 - (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage;
 - (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage atIndex:(int)index;
 

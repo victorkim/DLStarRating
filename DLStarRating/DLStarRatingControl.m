@@ -25,9 +25,13 @@
 - (void)setupView {
 	self.clipsToBounds = YES;
 	currentIdx = -1;
-	star = [[UIImage imageNamed:@"star.png"] retain];    
-	highlightedStar = [[UIImage imageNamed:@"star_highlighted.png"] retain];    
-
+    if (!star) {
+        star = [[UIImage imageNamed:@"star.png"] retain];
+	}
+    if (!highlightedStar) {
+        highlightedStar = [[UIImage imageNamed:@"star_highlighted.png"] retain];
+    }
+	
 	for (int i=0; i<numberOfStars; i++) {
 		DLStarView *v = [[DLStarView alloc] initWithDefault:self.star highlighted:self.highlightedStar position:i allowFractions:isFractionalRatingEnabled];
 		[self addSubview:v];
@@ -54,6 +58,23 @@
             numberOfStars *=kNumberOfFractions;
         [self setupView];
 
+	}
+	return self;
+}
+
+- (id)initWithFrame:(CGRect)frame withStar:(UIImage *)_star withHighlightedStar:(UIImage *)_highlightedStar withMargin:(CGFloat)_margin{
+	self = [super initWithFrame:frame];
+	if (self) {
+		numberOfStars = kDefaultNumberOfStars;
+        
+        if (isFractionalRatingEnabled)
+            numberOfStars *=kNumberOfFractions;
+        
+        self.star = _star;
+        self.highlightedStar = _highlightedStar;
+        
+        [self setupView];
+        
 	}
 	return self;
 }
